@@ -1,0 +1,107 @@
+{
+  "driver": [
+    {
+      "id": "5a8c",
+      "name": "Nelson Mwangi",
+      "departure": "Nairobi",
+      "destination": "Mombasa",
+      "photo": "https://media.istockphoto.com/id/1408160024/photo/a-family-packing-the-car-to-leave-for-summer-vacation-a-happy-african-american-father-and-his.webp?b=1&s=170667a&w=0&k=20&c=RVtnVA5yMYB3R1y1Q6-pYXUh3_L9U1HsThLVcQV54bA=",
+      "date": "2024-04-19",
+      "time": "18:26",
+      "description": "I have two extra seats in my car and wouldn't mind travelling with someone whose headed towards the direction. Feel free to reach out"
+    },
+  
+    {
+      "id": "9b3e",
+      "name": "Alice Mainge",
+      "departure": "Busia",
+      "destination": "Kisumu",
+      "photo": "https://media.istockphoto.com/id/1408160024/photo/a-family-packing-the-car-to-leave-for-summer-vacation-a-happy-african-american-father-and-his.webp?b=1&s=170667a&w=0&k=20&c=RVtnVA5yMYB3R1y1Q6-pYXUh3_L9U1HsThLVcQV54bA=",
+      "date": "2024-05-01",
+      "time": "10:00",
+      "description": "I'm driving cross-country and have room for one more person. Let me know if you need a ride."
+    },
+    {
+      "id": "c2e7",
+      "name": "Johnstone Samnaje",
+      "departure": "Mombasa",
+      "destination": "Machakos",
+      "photo": "https://media.istockphoto.com/id/1408160024/photo/a-family-packing-the-car-to-leave-for-summer-vacation-a-happy-african-american-father-and-his.webp?b=1&s=170667a&w=0&k=20&c=RVtnVA5yMYB3R1y1Q6-pYXUh3_L9U1HsThLVcQV54bA=",
+      "date": "2024-04-25",
+      "time": "15:30",
+      "description": "I have space for two in my car. Let me know if you need a ride to Machakos!"
+    },
+    {
+      "id": "f8d2",
+      "name": "Baba Owino",
+      "departure": "Busia ",
+      "destination": "Migori",
+      "photo": "https://media.istockphoto.com/id/1408160024/photo/a-family-packing-the-car-to-leave-for-summer-vacation-a-happy-african-american-father-and-his.webp?b=1&s=170667a&w=0&k=20&c=RVtnVA5yMYB3R1y1Q6-pYXUh3_L9U1HsThLVcQV54bA=",
+      "date": "2024-04-20",
+      "time": "12:00",
+      "description": "Heading to Migori tomorrow. I have one spot available if anyone needs a lift!"
+    },
+    {
+      "id": "1a9b",
+      "name": "Tom Tom",
+      "departure": "Nyeri",
+      "destination": "Murunga",
+      "photo": "https://media.istockphoto.com/id/1408160024/photo/a-family-packing-the-car-to-leave-for-summer-vacation-a-happy-african-american-father-and-his.webp?b=1&s=170667a&w=0&k=20&c=RVtnVA5yMYB3R1y1Q6-pYXUh3_L9U1HsThLVcQV54bA=",
+      "date": "2024-04-22",
+      "time": "08:00",
+      "description": "I'm driving to Muranga this weekend. Let me know if you need a ride!"
+    },
+    {
+      "id": "3c8d",
+      "name": "Michael Brown",
+      "departure": "Nairobi",
+      "destination": "Kendu Bay.",
+      "photo": "https://www.qaizen.co.ke/wp-content/uploads/2021/07/195052668_4132948246798806_9182010948789578335_n-710x350.jpeg",
+      "date": "2024-04-23",
+      "time": "09:30",
+      "description": "I have an extra seat available for anyone traveling to Kendu Bay this week."
+    },
+    {
+      "id": "5f2a",
+      "name": "Msichana Wamalwa",
+      "departure": "Atlanta",
+      "destination": "Orlando",
+      "photo": "https://media.istockphoto.com/id/1408160024/photo/a-family-packing-the-car-to-leave-for-summer-vacation-a-happy-african-american-father-and-his.webp?b=1&s=170667a&w=0&k=20&c=RVtnVA5yMYB3R1y1Q6-pYXUh3_L9U1HsThLVcQV54bA=",
+      "date": "2024-04-24",
+      "time": "13:45",
+      "description": "Driving to Orlando for the weekend. Let me know if you need a ride!"
+    }
+
+    
+    
+                    
+  ],
+  "vehicle": [],
+  "comments": [
+    {
+      "id": "16b4",
+      "Username": "Anonymous",
+      "Comment": "Hello, My name is Stephen"
+    },
+    {
+      "id": "a129",
+      "Username": "Anonymous",
+      "Comment": "Hello, my name is Nicolle Wanjiku"
+    },
+    {
+      "id": "5b36",
+      "Username": "Anonymous",
+      "Comment": "Tom Here. just want to say that i love your work"
+    },
+    {
+      "id": "bda2",
+      "Username": "Anonymous",
+      "Comment": "I really love your work. Cudos"
+    },
+    {
+      "id": "8967",
+      "Username": "Anonymous",
+      "Comment": "I really love your work. Cudos"
+    }
+  ]
+}
