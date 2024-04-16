@@ -18,12 +18,13 @@ function handleSubmits(e) {
         description: e.target.floatingTextarea.value
     };
 
-    handleIDPosts(driverObj);
+    renderDriversObject(driverObj);
+    document.querySelector("#main_form").reset()
 }
 
-// Send driverObj to API
-function handleIDPosts(driverObj) {
-    fetch(`${baseURL}/driver`, {
+// Render object
+function renderDriversObject(driverObj) {
+    fetch(`${baseURL}/drivers`, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -32,7 +33,7 @@ function handleIDPosts(driverObj) {
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data); // Log the response data if needed
+        console.log(data);
     })
     .catch(error => {
         console.error('Error posting driver data:', error);
@@ -41,7 +42,7 @@ function handleIDPosts(driverObj) {
 
 // GET request for driver details
 function getContentToFrontEnd() {
-    fetch(`${baseURL}/driver`)
+    fetch(`${baseURL}/drivers`)
         .then(res => res.json())
         .then(drivers => {
             pushToFrontEnd(drivers);
@@ -51,7 +52,7 @@ function getContentToFrontEnd() {
         });
 }
 
-// Create a card and append it to frontend
+// Create a card
 function pushToFrontEnd(drivers) {
     drivers.forEach(driver => {
         const card = document.createElement("li");
@@ -75,100 +76,99 @@ function pushToFrontEnd(drivers) {
                 </div>
             </div>
         `;
+
+        //Add event listener to delete button
+        card.querySelector(".delete_button").addEventListener("click", (e)=>{
+            confirmsDeleteAlert()
+            updateDelete(driver.id)
+        })
+
+        function confirmsDeleteAlert(e){
+            let result = confirm("Are you sure you want to delete this post?")
+            if(result == false){
+                e.preventDefault()
+            }else{
+                card.remove(e)
+            }
+        }
+
+        //Append card to parentNode
         document.querySelector(".cards_container").appendChild(card);
     });
 
-    // Add event listeners for delete buttons
-    function EditButton(){
-        const editButtons = document.querySelectorAll(".edit_button");
-        editButtons.forEach(button => {
-        button.addEventListener("click", (e) => {
-            driverObj = {
-                name: e.target.driver_name.value,
-                departure: e.target.departure.value,
-                destination: e.target.destination.value,
-                photo: e.target.driver_photo.value,
-                date: e.target.trip_date.value,
-                time: e.target.trip_time.value,
-                description: e.target.floatingTextarea.value
-            };
-
-            handleEdits(driver.id)
-
-        });
-    });
-
-    }
-    EditButton()
-
-    function handleEdits(id){
-        fetch(`${baseURL}/driver`, {
-            method: "PATCH",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(driverObj)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data); // Log the response data if needed
-        })
-        .catch(error => {
-            console.error('Error posting driver data:', error);
-        }); 
-    }
-
-
-   
-    // Add event listeners for delete buttons
-    function deleteButton(){
-        const deleteButtons = document.querySelectorAll(".delete_button");
-    deleteButtons.forEach(button => {
-        button.addEventListener("click", (e) => {
-            e.target.parentNode.parentNode.parentNode.remove()
-            alert("Delete button clicked");
-            handleDeletes(driver.id)
-        });
-    });
-
-    }
-    deleteButton()
-
-    function handleDeletes(id){
-        fetch(`${baseURL}/${id}`, {
+        //Update delete event
+    function updateDelete(id){
+        fetch(`${baseURL}/drivers/${id}`, {
             method: "DELETE",
             headers:{
-                "Content-Type": "application/json"
+            "Content-Type": "application/json"
             }
+
         })
-        .then(res=>res.json())
-        .then(data =>console.log(data))
+        .then(res => console.log(res))  
+
     }
 
+
 //comments section
-
-    let commentForm = document.querySelector(".comments_form")
-    console.log(commentForm)
-    let commentsList = document.createElement("li")
-    commentForm.addEventListener("submit", (e)=>{
-        e.preventDefault()
-        commentsList.textContent = e.target.comments_box.value
-    })
-    document.querySelector(".appends_comments").appendChild(commentsList)
+let commentsForm = document.querySelector(".comments_form")
+commentsForm.addEventListener("submit", handleCommentSubmits)
 
 
-//Mouseover
-let card = document.querySelector(".cards_container")
-let cardBody = document.querySelector(".card-body")
-card.forEach(item=>{
-    item.addEventListener("mouseover", ()=>{
-        cardBody.style.display = "block"
-})
-
-})
+function handleCommentSubmits(e){
+    e.preventDefault()
+    console.log(e.target.comments_box.value)
+    let commentsObj = {username: "Anonymous", comments: e.target.comments_box.value}
+    postComments(commentsObj)
+    e.target.reset()
 }
 
+function postComments(comments){
+    fetch(`${baseURL}/comments`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(comments)
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Error posting driver data:', error);
+    });
+}
+
+}
+    
+
+//handle GET request for comments
+fetch(`${baseURL}/comments`)
+.then(res => res.json())
+.then(comments =>{
+    handleComments(comments)})
+
+
+function handleComments(data){
+    data.forEach(item=>{
+    let commentsList = document.createElement("li");
+    commentsList.className = "form_list"
+    commentsList.textContent = item.comments
+    document.querySelector(".appends_comments").appendChild(commentsList);
+        })
+
+    }
+    
+    
+    
+    {
+        
+    
+    }
+        
 
 
 getContentToFrontEnd();
+mouseEvent()
 
