@@ -76,6 +76,10 @@ function pushToFrontEnd(drivers) {
                 </div>
             </div>
         `;
+        //Add event listener to edit button
+        let editButton = card.querySelector(".edit_button")
+        editButton.addEventListener("click", ()=>
+                        handleEditing(driver))
 
         //Add event listener to delete button
         card.querySelector(".delete_button").addEventListener("click", (e)=>{
@@ -91,6 +95,24 @@ function pushToFrontEnd(drivers) {
                 card.remove(e)
             }
         }
+        //Mouseover Event on cards
+        function mouseOver(){
+            card.addEventListener("mouseover", (e)=>{
+                let cardBody = e.currentTarget.querySelector('.card-body')
+                console.groupCollapsed(cardBody)
+                cardBody.style.display = "block"
+                mouseOut(cardBody)
+                
+        })
+
+        }
+        mouseOver()
+        
+    function mouseOut(item){
+        card.addEventListener("mouseout", (e) => {
+            item.style.display = "none";
+    })
+    }
 
         //Append card to parentNode
         document.querySelector(".cards_container").appendChild(card);
@@ -103,14 +125,12 @@ function pushToFrontEnd(drivers) {
             headers:{
             "Content-Type": "application/json"
             }
-
         })
         .then(res => console.log(res))  
-
     }
 
 
-//comments section
+        //comments section
 let commentsForm = document.querySelector(".comments_form")
 commentsForm.addEventListener("submit", handleCommentSubmits)
 
@@ -141,8 +161,14 @@ function postComments(comments){
 }
 
 }
+
+
+  
+           
     
 
+
+  
 //handle GET request for comments
 fetch(`${baseURL}/comments`)
 .then(res => res.json())
@@ -160,15 +186,21 @@ function handleComments(data){
 
     }
     
-    
+ 
     
     {
         
     
     }
-        
+      
+
+
+
+
+
+    
 
 
 getContentToFrontEnd();
-mouseEvent()
+mouseOverEvent()
 
